@@ -1,0 +1,8 @@
+overwrite: true
+schema: "src/**/*.graphql"
+documents:
+  - "src/queries/*.ts"
+ignoreNoDocuments: true
+generates:
+  src/generated/:
+    preset: "client"
