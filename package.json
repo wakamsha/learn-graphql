@@ -1,29 +1,43 @@
 {
   "name": "learn-graphql",
   "version": "1.0.0",
-  "scripts": {
-    "type-check": "tsc --noEmit",
-    "dev": "vite serve",
-    "start": "run-p \"type-check --watch\" \"dev\"",
-    "build": "vite build",
-    "codegen": "graphql-codegen --config ./codegen.yaml"
+  "repository": "git@github.com:wakamsha/learn-graphql.git",
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": "18.15.0",
+    "pnpm": "8.1.1",
+    "npm": "please use pnpm instead"
   },
-  "dependencies": {
-    "graphql": "16.6.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "urql": "4.0.0"
+  "packageManager": "pnpm@8.1.1",
+  "scripts": {
+    "app-urql": "pnpm -F \"@learn-graphql/app-urql\"",
+    "api": "     pnpm -F \"@learn-graphql/api\"",
+    "lint": "prettier -c {apps,packages}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages}/**/*.{ts,tsx}",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "3.3.0",
-    "@graphql-codegen/client-preset": "3.0.0",
-    "@graphql-typed-document-node/core": "3.2.0",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
-    "@vitejs/plugin-react": "3.1.0",
-    "npm-run-all": "4.1.5",
-    "typescript": "5.0.3",
-    "vite": "4.2.1"
+    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
+    "cspell": "6.31.1",
+    "eslint": "8.37.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "prettier": "2.8.7",
+    "prettier-plugin-organize-imports": "3.2.2",
+    "typescript": "5.0.3"
+  },
+  "lint-staged": {
+    "{apps,packages}/**/src/**/*.{ts,tsx}": [
+      "cspell",
+      "prettier -c",
+      "eslint -c .eslintrc.cjs"
+    ]
   }
 }

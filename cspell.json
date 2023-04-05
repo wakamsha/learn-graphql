@@ -1,0 +1,4 @@
+{
+  "ignorePaths": ["**/node_modules/**", "./pnpm-lock.yaml"],
+  "words": ["codegen", "urql"]
+}
