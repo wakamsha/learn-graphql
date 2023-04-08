@@ -1,5 +1,5 @@
 {
-  "name": "@learn-graphql/04-basic_types",
+  "name": "@learn-graphql/05-passing_arguments",
   "packageManager": "yarn@3.3.1",
   "scripts": {
     "dev": "ts-node server.ts"

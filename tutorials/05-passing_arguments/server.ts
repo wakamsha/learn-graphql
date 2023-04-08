@@ -1,23 +1,28 @@
 import express from 'express';
 import { createSchema, createYoga } from 'graphql-yoga';
 
+const typeDefs = `
+  type Query {
+    rollDice(numDice: Int!, numSides: Int): [Int]
+  }
+`;
+
+const rootValue = {
+  rollDice: (_: unknown, { numDice, numSides = 6 }: { numDice: number; numSides?: number }) =>
+    [...Array(numDice).keys()].map(() => 1 + Math.floor(Math.random() * numSides)),
+};
+
 const app = express();
 
 app.use(express.static('public'));
+
 app.use(
   '/graphql',
   createYoga({
     schema: createSchema({
-      typeDefs: `
-        type Query {
-          rollDice(numDice: Int!, numSides: Int): [Int]
-        }       
-      `,
+      typeDefs,
       resolvers: {
-        Query: {
-          rollDice: (_, { numDice, numSides }: { numDice: number; numSides: number }) =>
-            [...Array(numDice)].map(() => 1 + Math.floor(Math.random() * (numSides || 6))),
-        },
+        Query: rootValue,
       },
     }),
     graphiql: true,

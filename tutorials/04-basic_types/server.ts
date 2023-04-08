@@ -29,3 +29,4 @@ app.use(
 
 app.listen(4000);
 console.info('Running a GraphQL API server at http://localhost:4000/graphql');
+console.info('Running a Static Site at http://localhost:4000');
