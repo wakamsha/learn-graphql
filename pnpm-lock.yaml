@@ -84,6 +84,37 @@ importers:
         specifier: 4.2.1
         version: 4.2.1(@types/node@18.15.11)
 
+  backend/basic-query:
+    dependencies:
+      express:
+        specifier: 4.18.2
+        version: 4.18.2
+      graphql:
+        specifier: 16.6.0
+        version: 16.6.0
+      graphql-yoga:
+        specifier: 3.8.0
+        version: 3.8.0(graphql@16.6.0)
+      ts-node:
+        specifier: 10.9.1
+        version: 10.9.1(@types/node@18.15.11)(typescript@5.0.4)
+      typescript:
+        specifier: 5.0.4
+        version: 5.0.4
+    devDependencies:
+      '@learn-graphql/tsconfig':
+        specifier: workspace:*
+        version: link:../../packages/tsconfig
+      '@types/cors':
+        specifier: 2.8.13
+        version: 2.8.13
+      '@types/express':
+        specifier: 4.17.17
+        version: 4.17.17
+      cors:
+        specifier: 2.8.5
+        version: 2.8.5
+
   packages/api:
     dependencies:
       '@graphql-typed-document-node/core':

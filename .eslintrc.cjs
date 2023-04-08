@@ -20,7 +20,7 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: ['./{apps,packages,tutorials}/**/tsconfig.json'],
+    project: ['./{apps,backend,packages,tutorials}/**/tsconfig.json'],
   },
   ignorePatterns: ['.eslintrc.*', 'vite.config.ts', 'dist/**/*', 'app.js'],
   plugins: ['react', 'react-hooks'],

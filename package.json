@@ -12,18 +12,19 @@
   },
   "packageManager": "pnpm@8.1.1",
   "scripts": {
-    "app-urql": "pnpm -F \"@learn-graphql/app-urql\"",
-    "api": "     pnpm -F \"@learn-graphql/api\"",
-    "01": "      pnpm -F \"@learn-graphql/01-getting_started\"",
-    "02": "      pnpm -F \"@learn-graphql/02-running_express_graphql\"",
-    "03": "      pnpm -F \"@learn-graphql/03-graphql_client\"",
-    "04": "      pnpm -F \"@learn-graphql/04-basic_types\"",
-    "05": "      pnpm -F \"@learn-graphql/05-passing_arguments\"",
-    "06": "      pnpm -F \"@learn-graphql/06-object_types\"",
-    "07": "      pnpm -F \"@learn-graphql/07-mutations_and_input_types\"",
-    "08": "      pnpm -F \"@learn-graphql/08-authentication_and_express_middleware\"",
-    "09": "      pnpm -F \"@learn-graphql/09-constructing_types\"",
-    "lint": "prettier -c {apps,packages,tutorials}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages,tutorials}/**/*.{ts,tsx}",
+    "app-urql": "   pnpm -F \"@learn-graphql/app-urql\"",
+    "basic-query": "pnpm -F \"@learn-graphql/basic-query\"",
+    "api": "        pnpm -F \"@learn-graphql/api\"",
+    "01": "         pnpm -F \"@learn-graphql/01-getting_started\"",
+    "02": "         pnpm -F \"@learn-graphql/02-running_express_graphql\"",
+    "03": "         pnpm -F \"@learn-graphql/03-graphql_client\"",
+    "04": "         pnpm -F \"@learn-graphql/04-basic_types\"",
+    "05": "         pnpm -F \"@learn-graphql/05-passing_arguments\"",
+    "06": "         pnpm -F \"@learn-graphql/06-object_types\"",
+    "07": "         pnpm -F \"@learn-graphql/07-mutations_and_input_types\"",
+    "08": "         pnpm -F \"@learn-graphql/08-authentication_and_express_middleware\"",
+    "09": "         pnpm -F \"@learn-graphql/09-constructing_types\"",
+    "lint": "prettier -c {apps,backend,packages,tutorials}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,backend,packages,tutorials}/**/*.{ts,tsx}",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -43,7 +44,7 @@
     "typescript": "5.0.3"
   },
   "lint-staged": {
-    "{apps,packages,tutorials}/**/*.{ts,tsx}": [
+    "{apps,backend,packages,tutorials}/**/*.{ts,tsx}": [
       "cspell",
       "prettier -c",
       "eslint -c .eslintrc.cjs"

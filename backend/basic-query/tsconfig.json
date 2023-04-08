@@ -1,0 +1,9 @@
+{
+  "extends": "@learn-graphql/tsconfig/tsconfig.base",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "outDir": "./dist"
+  },
+  "include": ["./*.ts"]
+}
