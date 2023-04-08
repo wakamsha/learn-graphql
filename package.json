@@ -1,0 +1,52 @@
+{
+  "name": "learn-graphql",
+  "version": "1.0.0",
+  "repository": "git@github.com:wakamsha/learn-graphql.git",
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": "18.15.0",
+    "pnpm": "8.1.1",
+    "npm": "please use pnpm instead"
+  },
+  "packageManager": "pnpm@8.1.1",
+  "scripts": {
+    "app-urql": "pnpm -F \"@learn-graphql/app-urql\"",
+    "api": "     pnpm -F \"@learn-graphql/api\"",
+    "01": "      pnpm -F \"@learn-graphql/01-getting_started\"",
+    "02": "      pnpm -F \"@learn-graphql/02-running_express_graphql\"",
+    "03": "      pnpm -F \"@learn-graphql/03-graphql_client\"",
+    "04": "      pnpm -F \"@learn-graphql/04-basic_types\"",
+    "05": "      pnpm -F \"@learn-graphql/05-passing_arguments\"",
+    "06": "      pnpm -F \"@learn-graphql/06-object_types\"",
+    "07": "      pnpm -F \"@learn-graphql/07-mutations_and_input_types\"",
+    "08": "      pnpm -F \"@learn-graphql/08-authentication_and_express_middleware\"",
+    "09": "      pnpm -F \"@learn-graphql/09-constructing_types\"",
+    "lint": "prettier -c {apps,packages,tutorials}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages,tutorials}/**/*.{ts,tsx}",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
+    "cspell": "6.31.1",
+    "eslint": "8.37.0",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "8.8.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-react": "7.32.2",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.0",
+    "prettier": "2.8.7",
+    "prettier-plugin-organize-imports": "3.2.2",
+    "typescript": "5.0.3"
+  },
+  "lint-staged": {
+    "{apps,packages,tutorials}/**/*.{ts,tsx}": [
+      "cspell",
+      "prettier -c",
+      "eslint -c .eslintrc.cjs"
+    ]
+  }
+}
