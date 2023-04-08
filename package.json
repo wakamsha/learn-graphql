@@ -14,6 +14,15 @@
   "scripts": {
     "app-urql": "pnpm -F \"@learn-graphql/app-urql\"",
     "api": "     pnpm -F \"@learn-graphql/api\"",
+    "01": "      pnpm -F \"@learn-graphql/01-getting_started\"",
+    "02": "      pnpm -F \"@learn-graphql/02-running_express_graphql\"",
+    "03": "      pnpm -F \"@learn-graphql/03-graphql_client\"",
+    "04": "      pnpm -F \"@learn-graphql/04-basic_types\"",
+    "05": "      pnpm -F \"@learn-graphql/05-passing_arguments\"",
+    "06": "      pnpm -F \"@learn-graphql/06-object_types\"",
+    "07": "      pnpm -F \"@learn-graphql/07-mutations_and_input_types\"",
+    "08": "      pnpm -F \"@learn-graphql/08-authentication_and_express_middleware\"",
+    "09": "      pnpm -F \"@learn-graphql/09-constructing_types\"",
     "lint": "prettier -c {apps,packages}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,packages}/**/*.{ts,tsx}",
     "prepare": "husky install"
   },
@@ -34,7 +43,7 @@
     "typescript": "5.0.3"
   },
   "lint-staged": {
-    "{apps,packages}/**/src/**/*.{ts,tsx}": [
+    "{apps,packages,tutorials}/**/src/**/*.{ts,tsx}": [
       "cspell",
       "prettier -c",
       "eslint -c .eslintrc.cjs"
