@@ -1,5 +1,5 @@
 {
-  "name": "@learn-graphql/04-basic_types",
+  "name": "@learn-graphql/06-object_types",
   "version": "1.0.0",
   "scripts": {
     "dev": "ts-node server.ts"

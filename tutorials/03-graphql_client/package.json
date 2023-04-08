@@ -1,6 +1,6 @@
 {
   "name": "@learn-graphql/03-graphql_client",
-  "packageManager": "yarn@3.3.1",
+  "version": "1.0.0",
   "scripts": {
     "dev1": "ts-node ./server1.ts",
     "dev2": "ts-node ./server2.ts"
