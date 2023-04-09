@@ -1,0 +1,40 @@
+"""
+楽器
+"""
+enum Equip {
+  vocal
+  guitar
+  bass
+  drum
+}
+
+"""
+バンドのメンバー情報
+"""
+type Member {
+  """
+  メンバー ID
+  """
+  id: String!
+  """
+  人名
+  """
+  name: String!
+  """
+  担当楽器
+  """
+  equip: Equip
+}
+
+type Query {
+  """
+  バンドのメンバー情報を一覧で取得します。
+  """
+  members: [Member!]!
+  """
+  指定のメンバー情報を取得します。
+
+  @param id メンバーID
+  """
+  member(id: String!): Member!
+}

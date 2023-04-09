@@ -1,0 +1,4 @@
+{
+  "extends": "@learn-graphql/tsconfig/tsconfig.base",
+  "include": ["src/**/*", "bin/*"]
+}
