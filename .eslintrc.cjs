@@ -20,9 +20,9 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: ['./{apps,backend,packages,tutorials}/**/tsconfig.json'],
+    project: ['./{frontend,backend,packages,tutorials}/**/tsconfig.json'],
   },
-  ignorePatterns: ['.eslintrc.*', 'vite.config.ts', 'dist/**/*', 'app.js'],
+  ignorePatterns: ['.eslintrc.*', 'vite.config.ts', 'dist/**/*', 'app.js', 'codegen.ts'],
   plugins: ['react', 'react-hooks'],
   rules: {
     // Enable
@@ -171,21 +171,4 @@ module.exports = {
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
   },
-  overrides: [
-    {
-      files: ['./**/ambience.d.ts'],
-      rules: {
-        'import/no-default-export': ['off'],
-      },
-    },
-    {
-      files: ['*.js', '*.mjs'],
-      rules: {
-        '@typescript-eslint/ban-ts-comment': ['off'],
-        '@typescript-eslint/no-var-requires': ['off'],
-        'no-underscore-dangle': ['off'],
-        'import/no-default-export': ['off'],
-      },
-    },
-  ],
 };

@@ -3,7 +3,10 @@
   "compilerOptions": {
     "module": "CommonJS",
     "esModuleInterop": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@learn-graphql/api/*": ["../../packages/api/src/*"]
+    }
   },
   "include": ["./*.ts"]
 }
