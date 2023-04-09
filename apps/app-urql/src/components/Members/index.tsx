@@ -1,4 +1,4 @@
-import { GetMembersDocument } from '@learn-graphql/api/generated/graphql';
+import { GetMembersDocument } from '@learn-graphql/api/gql/graphql';
 import { useQuery } from '@learn-graphql/api/hooks/useQuery';
 import { type CSSProperties } from 'react';
 

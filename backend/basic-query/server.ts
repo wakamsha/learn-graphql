@@ -1,4 +1,4 @@
-import { type Member } from '@learn-graphql/api/generated/graphql';
+import { type Member } from '@learn-graphql/api/gql/graphql';
 import cors from 'cors';
 import express from 'express';
 import { createSchema, createYoga } from 'graphql-yoga';

@@ -1,4 +1,4 @@
-import { GetMemberByIdDocument } from '@learn-graphql/api/generated/graphql';
+import { GetMemberByIdDocument } from '@learn-graphql/api/gql/graphql';
 import { useQuery } from '@learn-graphql/api/hooks/useQuery';
 import { useState, type CSSProperties, type ChangeEvent } from 'react';
 

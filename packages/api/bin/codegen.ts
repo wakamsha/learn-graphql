@@ -12,7 +12,7 @@ const config: CodegenConfig = {
   documents: [resolve(__dirname, '../../../**/*.operation.graphql')],
   ignoreNoDocuments: true,
   generates: {
-    'src/generated/': {
+    'src/gql/': {
       preset: 'client',
       config: {
         enumsAsTypes: true,

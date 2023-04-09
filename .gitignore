@@ -109,5 +109,5 @@ dist
 !.vscode/settings.recommended.json
 
 # GraphQL
-**/generated/*
+**/gql/*
 !**/.gitkeep
