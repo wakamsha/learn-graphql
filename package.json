@@ -24,7 +24,7 @@
     "07": "         pnpm -F \"@learn-graphql/07-mutations_and_input_types\"",
     "08": "         pnpm -F \"@learn-graphql/08-authentication_and_express_middleware\"",
     "09": "         pnpm -F \"@learn-graphql/09-constructing_types\"",
-    "lint": "prettier -c {apps,backend,packages,tutorials}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {apps,backend,packages,tutorials}/**/*.{ts,tsx}",
+    "lint": "prettier -c {frontend,backend,packages,tutorials}/**/*.{ts,tsx}; eslint -c .eslintrc.cjs {frontend,backend,packages,tutorials}/**/*.{ts,tsx}",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -44,7 +44,7 @@
     "typescript": "5.0.3"
   },
   "lint-staged": {
-    "{apps,backend,packages,tutorials}/**/*.{ts,tsx}": [
+    "{frontend,backend,packages,tutorials}/**/*.{ts,tsx}": [
       "cspell",
       "prettier -c",
       "eslint -c .eslintrc.cjs"
