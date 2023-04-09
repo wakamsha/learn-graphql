@@ -171,4 +171,12 @@ module.exports = {
     'no-shadow': ['off'],
     'no-throw-literal': ['off'],
   },
+  overrides: [
+    {
+      files: ['./**/*.stories.tsx'],
+      rules: {
+        'import/no-default-export': ['off'],
+      },
+    },
+  ],
 };
