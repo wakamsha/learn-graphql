@@ -4,9 +4,9 @@ GraphQL で API と疎通する web フロントエンドアプリを検証す�
 
 ## Workspaces
 
-### Frontend
-
 ### Backend
+
+### Frontend
 
 ### Tutorials
 
