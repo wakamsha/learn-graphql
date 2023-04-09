@@ -1,36 +1,38 @@
-// import { Provider, useQuery, createClient, cacheExchange, fetchExchange } from 'urql';
-// import { User } from "../../../src/queries/user";
+import { useClient } from '@learn-graphql/api/hooks/useClient';
+import { type CSSProperties } from 'react';
+import { Member } from './components/Member';
+import { Members } from './components/Members';
 
-// export const App = () => {
-//   const client = createClient({
-//     url: 'http://localhost:4000/graphql1',
-//     exchanges: [cacheExchange, fetchExchange],
-//   });
+export const App = () => {
+  const { Provider, client } = useClient('http://localhost:4000/graphql');
 
-//   return (
-//     <Provider value={client}>
-//       <Presentation />
-//     </Provider>
-//   );
-// }
+  return (
+    <Provider value={client}>
+      <main style={styleMain}>
+        <h1>
+          Fetch App <small style={styleTitleSub}>Powered by urql</small>
+        </h1>
+        <div style={styleContents}>
+          <Members />
+          <Member />
+        </div>
+      </main>
+    </Provider>
+  );
+};
 
-// const Presentation = () => {
-//   const [{ data, fetching, error }] = useQuery({
-//     query: User,
-//   });
+const styleMain: CSSProperties = {
+  margin: 'auto',
+  maxWidth: 720,
+};
 
-//   if (fetching) {
-//     return <p>Loading...</p>;
-//   }
+const styleContents: CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
+  gap: 32,
+};
 
-//   if (error) {
-//     return <p>Oh no... {error.message}</p>;
-//   }
-
-//   return (
-//     <pre>
-//       <code>{JSON.stringify(data, null, 2)}</code>
-//     </pre>
-//   )
-// }
-export const App = () => <h1>hello world</h1>;
+const styleTitleSub: CSSProperties = {
+  fontSize: '0.48em',
+  color: 'gray',
+};

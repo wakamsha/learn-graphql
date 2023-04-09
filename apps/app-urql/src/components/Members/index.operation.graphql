@@ -1,0 +1,7 @@
+query getMembers {
+  members {
+    id
+    name
+    # equip
+  }
+}
