@@ -5,7 +5,7 @@
 ## Run
 
 ```shell
-pnpm dev
+pnpm start
 ```
 
 ブラウザで [http://localhost:4000/graphql](http://localhost:4000/graphql) にアクセスすると WebUI で GraphQL のクエリを実行できる GraphiQL にアクセスできます。

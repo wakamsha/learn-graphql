@@ -6,7 +6,11 @@ GraphQL で API と疎通する web フロントエンドアプリを検証す�
 
 ### Backend
 
+このワークスペースにあるパッケージは、いずれもシンプルな GraphQL Server App です。GraphQL Client を実装したフロントエンドアプリを設計する際の検証環境が主な用途です。
+
 ### Frontend
+
+このワークスペースにあるパッケージは、全て単体の web フロントエンドアプリケーションとしてビルド、デプロイ可能なものです。
 
 ### Tutorials
 
@@ -49,4 +53,12 @@ pnpm install
 pnpm api codegen
 # `@learn-graphql/api` パッケージにて GraphQL のスキーマ定義とオペレーション定義から
 # TypeScript の型定義と `DocumentNode` オブジェクトを生成します。
+```
+
+### VSCode ( Optional )
+
+VSCode を使用している場合は、IDE の基本設定を反映させます。
+
+```bash
+cp .vscode/settings.recommended.json .vscode/settings.json
 ```
