@@ -12,6 +12,7 @@
   },
   "packageManager": "pnpm@8.1.1",
   "scripts": {
+    "app-apollo": " pnpm -F \"@learn-graphql/app-apollo\"",
     "app-urql": "   pnpm -F \"@learn-graphql/app-urql\"",
     "basic-query": "pnpm -F \"@learn-graphql/basic-query\"",
     "api": "        pnpm -F \"@learn-graphql/api\"",

@@ -1,11 +1,9 @@
 import { GetMembersDocument } from '@learn-graphql/api/gql/graphql';
-import { useQuery } from '@learn-graphql/api/hooks/urql/useQuery';
+import { useQuery } from '@learn-graphql/api/hooks/apollo/useQuery';
 import { type CSSProperties } from 'react';
 
 export const Members = () => {
-  const [{ data, fetching, error }] = useQuery({
-    query: GetMembersDocument,
-  });
+  const { data, loading: fetching, error } = useQuery(GetMembersDocument);
 
   if (fetching) {
     return <p>Loading...</p>;

@@ -9,7 +9,7 @@ import { resolve } from 'path';
  */
 const config: CodegenConfig = {
   schema: ['schemas/*.graphql'],
-  documents: [resolve(__dirname, '../../../**/*.operation.graphql')],
+  documents: [resolve(__dirname, '../../../**/*.graphql')],
   ignoreNoDocuments: true,
   generates: {
     'src/gql/': {
