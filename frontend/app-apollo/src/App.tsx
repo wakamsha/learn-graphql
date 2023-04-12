@@ -1,4 +1,4 @@
-import { useClient } from '@learn-graphql/api/hooks/urql/useClient';
+import { useClient } from '@learn-graphql/api/hooks/apollo/useClient';
 import { type CSSProperties } from 'react';
 import { Member } from './components/Member';
 import { Members } from './components/Members';
@@ -7,10 +7,10 @@ export const App = () => {
   const { Provider, client } = useClient('http://localhost:4000/graphql');
 
   return (
-    <Provider value={client}>
+    <Provider client={client}>
       <main style={styleMain}>
         <h1>
-          Fetch App <small style={styleTitleSub}>Powered by urql</small>
+          Fetch App <small style={styleTitleSub}>Powered by Apollo</small>
         </h1>
         <div style={styleContents}>
           <Members />

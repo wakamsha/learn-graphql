@@ -1,5 +1,5 @@
 import { GetMemberByIdDocument } from '@learn-graphql/api/gql/graphql';
-import { useQuery } from '@learn-graphql/api/hooks/urql/useQuery';
+import { useQuery } from '@learn-graphql/api/hooks/apollo/useQuery';
 import { useState, type CSSProperties, type ChangeEvent } from 'react';
 
 export const Member = () => {
@@ -37,11 +37,12 @@ const Form = ({ onSubmit }: { onSubmit: (id: string) => void }) => {
 };
 
 const Result = ({ id }: { id: string }) => {
-  const [{ data, fetching, error }] = useQuery({
-    query: GetMemberByIdDocument,
-    variables: {
-      id,
-    },
+  const {
+    data,
+    loading: fetching,
+    error,
+  } = useQuery(GetMemberByIdDocument, {
+    variables: { id },
   });
 
   if (fetching) {
