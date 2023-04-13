@@ -1,0 +1,34 @@
+{
+  "name": "@learn-graphql/catalog",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook",
+    "prepare": "msw init ./static --save"
+  },
+  "dependencies": {
+    "@learn-graphql/api": "workspace:*",
+    "@learn-graphql/core": "workspace:*",
+    "msw": "1.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.21.4",
+    "@learn-graphql/tsconfig": "workspace:*",
+    "@storybook/addon-essentials": "6.5.16",
+    "@storybook/addon-interactions": "6.5.16",
+    "@storybook/addon-links": "6.5.16",
+    "@storybook/builder-webpack5": "6.5.16",
+    "@storybook/csf": "0.1.0",
+    "@storybook/manager-webpack5": "6.5.16",
+    "@storybook/react": "6.5.16",
+    "@types/react": "18.0.33",
+    "@types/react-dom": "18.0.11",
+    "babel-loader": "9.1.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.5"
+  },
+  "msw": {
+    "workerDirectory": "static"
+  }
+}
