@@ -14,6 +14,7 @@
   "scripts": {
     "app-apollo": " pnpm -F \"@learn-graphql/app-apollo\"",
     "app-urql": "   pnpm -F \"@learn-graphql/app-urql\"",
+    "catalog": "    pnpm -F \"@learn-graphql/catalog\"",
     "basic-query": "pnpm -F \"@learn-graphql/basic-query\"",
     "api": "        pnpm -F \"@learn-graphql/api\"",
     "01": "         pnpm -F \"@learn-graphql/01-getting_started\"",
