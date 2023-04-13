@@ -23,6 +23,7 @@ module.exports = {
     config.resolve.alias = {
       ...config.resolve.alias,
       '@learn-graphql/api': resolve(__dirname, '../../../packages/api/src'),
+      '@learn-graphql/core': resolve(__dirname, '../../../packages/core/src'),
     };
     return config;
   },

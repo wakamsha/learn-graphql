@@ -4,7 +4,8 @@
     "types": ["vite/client"],
     "baseUrl": "./",
     "paths": {
-      "@learn-graphql/api/*": ["../../packages/api/src/*"]
+      "@learn-graphql/api/*": ["../../packages/api/src/*"],
+      "@learn-graphql/core/*": ["../../packages/core/src/*"]
     }
   },
   "include": ["./src/**/*", "./vite.config.ts"]
