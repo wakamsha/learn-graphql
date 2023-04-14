@@ -1,10 +1,10 @@
 import { useClient } from '@learn-graphql/api/src/hooks/urql/useClient';
 import { startMsw } from '@learn-graphql/core/src/utils/Catalog';
-import { Decorator } from '@storybook/react';
+import { Preview } from '@storybook/react';
 
 startMsw();
 
-const preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -33,7 +33,7 @@ const preview = {
         </Provider>
       );
     },
-  ] as Decorator[],
+  ],
 };
 
 export default preview;
