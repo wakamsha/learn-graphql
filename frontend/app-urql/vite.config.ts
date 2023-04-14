@@ -10,9 +10,4 @@ export default defineConfig({
     open: true,
   },
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@learn-graphql/api': resolve(__dirname, '../../packages/api/src'),
-    },
-  },
 });

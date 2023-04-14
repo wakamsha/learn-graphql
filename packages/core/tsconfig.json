@@ -1,10 +1,4 @@
 {
   "extends": "@learn-graphql/tsconfig/tsconfig.base",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@learn-graphql/api/*": ["../api/src/*"]
-    }
-  },
   "include": ["./src/**/*"]
 }

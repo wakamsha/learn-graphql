@@ -17,6 +17,7 @@
     "catalog": "    pnpm -F \"@learn-graphql/catalog\"",
     "basic-query": "pnpm -F \"@learn-graphql/basic-query\"",
     "api": "        pnpm -F \"@learn-graphql/api\"",
+    "core": "       pnpm -F \"@learn-graphql/core\"",
     "01": "         pnpm -F \"@learn-graphql/01-getting_started\"",
     "02": "         pnpm -F \"@learn-graphql/02-running_express_graphql\"",
     "03": "         pnpm -F \"@learn-graphql/03-graphql_client\"",

@@ -1,5 +1,5 @@
-import { GetMembersDocument } from '@learn-graphql/api/gql/graphql';
-import { useQuery } from '@learn-graphql/api/hooks/apollo/useQuery';
+import { GetMembersDocument } from '@learn-graphql/api/src/gql/graphql';
+import { useQuery } from '@learn-graphql/api/src/hooks/apollo/useQuery';
 import { type CSSProperties } from 'react';
 
 export const Members = () => {

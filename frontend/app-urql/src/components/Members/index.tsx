@@ -1,5 +1,5 @@
-import { GetMembersDocument } from '@learn-graphql/api/gql/graphql';
-import { useQuery } from '@learn-graphql/api/hooks/urql/useQuery';
+import { GetMembersDocument } from '@learn-graphql/api/src/gql/graphql';
+import { useQuery } from '@learn-graphql/api/src/hooks/urql/useQuery';
 import { type CSSProperties } from 'react';
 
 export const Members = () => {

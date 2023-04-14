@@ -1,8 +1,8 @@
-import { GetMemberByIdDocument } from '@learn-graphql/api/gql/graphql';
-import { mswDecorator } from '@learn-graphql/core/utils/Catalog';
+import { GetMemberByIdDocument } from '@learn-graphql/api/src/gql/graphql';
+import { mswDecorator, type Meta } from '@learn-graphql/core/src/utils/Catalog';
 import { Member } from '.';
 
-export default {
+const meta: Meta = {
   component: Member,
   decorators: [
     mswDecorator((gql) => [
@@ -30,5 +30,6 @@ export default {
     ]),
   ],
 };
+export default meta;
 
 export const Usage = {};
