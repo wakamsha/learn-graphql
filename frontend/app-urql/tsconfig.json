@@ -2,11 +2,11 @@
   "extends": "@learn-graphql/tsconfig/tsconfig.base",
   "compilerOptions": {
     "types": ["vite/client"],
-    "baseUrl": "./",
-    "paths": {
-      "@learn-graphql/api/*": ["../../packages/api/src/*"],
-      "@learn-graphql/core/*": ["../../packages/core/src/*"]
-    }
+    "baseUrl": "./"
+    // "paths": {
+    //   "@learn-graphql/api/*": ["../../packages/api/src/*"],
+    //   "@learn-graphql/core/*": ["../../packages/core/src/*"]
+    // }
   },
   "include": ["./src/**/*", "./vite.config.ts"]
 }

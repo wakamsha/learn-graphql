@@ -1,5 +1,4 @@
-import { type Args, type DecoratorFunction } from '@storybook/csf';
-import { type ReactFramework } from '@storybook/react';
+import { type Decorator } from '@storybook/react';
 import { graphql, setupWorker, type RequestHandler } from 'msw';
 import { useEffect } from 'react';
 
@@ -37,9 +36,7 @@ export async function startMsw() {
  * export default meta;
  * ```
  */
-export function mswDecorator(
-  mock: (gql: typeof graphql) => RequestHandler[],
-): DecoratorFunction<ReactFramework & { canvasElement: unknown }, Args> {
+export function mswDecorator(mock: (gql: typeof graphql) => RequestHandler[]): Decorator {
   const Wrapper = ({ children }: { children: JSX.Element }) => {
     useEffect(() => {
       worker.use(...mock(graphql));

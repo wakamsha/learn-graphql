@@ -1,5 +1,5 @@
-import { GetMemberByIdDocument } from '@learn-graphql/api/gql/graphql';
-import { mswDecorator } from '@learn-graphql/core/utils/Catalog';
+import { GetMemberByIdDocument } from '@learn-graphql/api/src/gql/graphql';
+import { mswDecorator } from '@learn-graphql/core/src/utils/Catalog';
 import { Member } from '.';
 
 export default {

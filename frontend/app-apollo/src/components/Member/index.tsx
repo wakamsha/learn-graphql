@@ -1,5 +1,5 @@
-import { GetMemberByIdDocument } from '@learn-graphql/api/gql/graphql';
-import { useQuery } from '@learn-graphql/api/hooks/apollo/useQuery';
+import { GetMemberByIdDocument } from '@learn-graphql/api/src/gql/graphql';
+import { useQuery } from '@learn-graphql/api/src/hooks/apollo/useQuery';
 import { useState, type CSSProperties, type ChangeEvent } from 'react';
 
 export const Member = () => {

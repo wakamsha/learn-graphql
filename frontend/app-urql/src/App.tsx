@@ -1,4 +1,4 @@
-import { useClient } from '@learn-graphql/api/hooks/urql/useClient';
+import { useClient } from '@learn-graphql/api/src/hooks/urql/useClient';
 import { type CSSProperties } from 'react';
 import { Member } from './components/Member';
 import { Members } from './components/Members';
