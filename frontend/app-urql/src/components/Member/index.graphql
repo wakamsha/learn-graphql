@@ -1,7 +1,7 @@
-query getMemberById($id: String!) {
+query getMemberById($id: ID!) {
   member(id: $id) {
     id
     name
-    equip
+    instrument
   }
 }

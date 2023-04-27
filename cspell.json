@@ -1,4 +1,16 @@
 {
   "ignorePaths": ["**/node_modules/**", "./pnpm-lock.yaml"],
-  "words": ["autodocs", "bonham", "codegen", "corepack", "graphiql", "Mounfield", "nodenv", "urql"]
+  "words": [
+    "autodocs",
+    "bonham",
+    "ozzy",
+    "Osbourne",
+    "iommi",
+    "codegen",
+    "corepack",
+    "graphiql",
+    "Mounfield",
+    "nodenv",
+    "urql"
+  ]
 }

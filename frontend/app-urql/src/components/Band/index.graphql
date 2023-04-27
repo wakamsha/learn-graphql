@@ -1,0 +1,10 @@
+query fetchBandDetail($bandId: ID!) {
+  band(id: $bandId) {
+    name
+    description
+  }
+
+  members(bandId: $bandId) {
+    ...BandMember
+  }
+}

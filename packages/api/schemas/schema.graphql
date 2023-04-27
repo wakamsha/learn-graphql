@@ -1,7 +1,7 @@
 """
 楽器
 """
-enum Equip {
+enum Instrument {
   vocal
   guitar
   bass
@@ -9,32 +9,67 @@ enum Equip {
 }
 
 """
+バンド情報
+"""
+type Band {
+  """
+  バンド ID
+  """
+  id: ID!
+
+  """
+  バンド名
+  """
+  name: String!
+
+  """
+  概要
+  """
+  description: String
+}
+
+"""
 バンドのメンバー情報
 """
 type Member {
   """
+  バンド ID
+  """
+  bandId: ID!
+
+  """
   メンバー ID
   """
-  id: String!
+  id: ID!
+
   """
   人名
   """
   name: String!
+
   """
   担当楽器
   """
-  equip: Equip
+  instrument: Instrument
 }
 
 type Query {
   """
+  指定のバンド情報を取得します。
+
+  @param id バンド ID
+  """
+  band(id: ID!): Band!
+
+  """
   バンドのメンバー情報を一覧で取得します。
   """
-  members: [Member!]!
+  members(bandId: ID!): [Member!]!
+
   """
   指定のメンバー情報を取得します。
 
-  @param id メンバーID
+  @param id メンバー ID
   """
-  member(id: String!): Member!
+  member(id: ID!): Member!
 }
