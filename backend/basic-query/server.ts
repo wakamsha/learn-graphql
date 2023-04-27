@@ -1,40 +1,79 @@
-import { type Member } from '@learn-graphql/api/gql/graphql';
+import { type Band, type Member } from '@learn-graphql/api/gql/graphql';
 import cors from 'cors';
 import express from 'express';
 import { createSchema, createYoga } from 'graphql-yoga';
 
 const typeDefs = `
-  enum Equip {
+  enum Instrument {
     vocal
     guitar
     bass
     drum
   }
 
+  type Band {
+    id: ID!
+    name: String!
+    description: String
+  }
+
   type Member {
-    id: String
-    name: String
-    equip: Equip
+    bandId: ID!
+    id: ID!
+    name: String!
+    instrument: Instrument
   }
 
   type Query {
-    members: [Member!]!
-    member(id: String!): Member
+    band(id: ID!): Band!
+    members(bandId: ID!): [Member!]!
+    member(id: ID!): Member!
   }
 `;
 
 const resolvers = {
   Query: {
-    members: () => Array.from(db.entries()).map(([, value]) => value),
-    member: (_: unknown, { id }: { id: string }) => db.get(id),
+    band: (_: unknown, { id }: { id: string }) => bandDb.get(id),
+    members: (_: unknown, { bandId }: { bandId: string }) =>
+      Array.from(memberDb.entries())
+        .filter(([, value]) => value.bandId === bandId)
+        .map(([, value]) => value),
+    member: (_: unknown, { id }: { id: string }) => memberDb.get(id),
   },
 };
 
-const db = new Map<string, Member>([
-  ['robert', { __typename: 'Member', id: 'robert', name: 'Robert Plant', equip: 'vocal' }],
-  ['jimmy', { __typename: 'Member', id: 'jimmy', name: 'Jimmy Page', equip: 'guitar' }],
-  ['jones', { __typename: 'Member', id: 'jones', name: 'John Paul Jones', equip: 'bass' }],
-  ['bonham', { __typename: 'Member', id: 'bonham', name: 'John Bonham', equip: 'drum' }],
+const bandDb = new Map<string, Band>([
+  [
+    'zep',
+    {
+      __typename: 'Band',
+      id: 'zep',
+      name: 'Led Zeppelin',
+      description:
+        'レッド・ツェッペリン（Led Zeppelin）は、1968年にロンドンで結成されたイギリスのロックバンド。ブルースやフォークミュージックなど、さまざまな影響を受けたスタイルでありながら、重厚なギターサウンドで、ハードロックやヘヴィメタルの先駆者の一つとして挙げられている。',
+    },
+  ],
+  [
+    'sabbath',
+    {
+      __typename: 'Band',
+      id: 'sabbath',
+      name: 'Black Sabbath',
+      description:
+        'ブラック・サバス（Black Sabbath）は、イングランド出身のロックバンド。1960年代から活動していた有名グループの一つで、ヘヴィメタルやドゥームの開祖とも言われた。',
+    },
+  ],
+]);
+
+const memberDb = new Map<string, Member>([
+  ['robert', { __typename: 'Member', bandId: 'zep', id: 'robert', name: 'Robert Plant', instrument: 'vocal' }],
+  ['jimmy', { __typename: 'Member', bandId: 'zep', id: 'jimmy', name: 'Jimmy Page', instrument: 'guitar' }],
+  ['jones', { __typename: 'Member', bandId: 'zep', id: 'jones', name: 'John Paul Jones', instrument: 'bass' }],
+  ['bonham', { __typename: 'Member', bandId: 'zep', id: 'bonham', name: 'John Bonham', instrument: 'drum' }],
+  ['ozzy', { __typename: 'Member', bandId: 'sabbath', id: 'ozzy', name: 'Ozzy Osbourne', instrument: 'vocal' }],
+  ['iommi', { __typename: 'Member', bandId: 'sabbath', id: 'iommi', name: 'Tony Iommi', instrument: 'guitar' }],
+  ['geezer', { __typename: 'Member', bandId: 'sabbath', id: 'geezer', name: 'Geezer Butler', instrument: 'bass' }],
+  ['bill', { __typename: 'Member', bandId: 'sabbath', id: 'bill', name: 'Bill Ward', instrument: 'drum' }],
 ]);
 
 const app = express();
