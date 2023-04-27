@@ -1,7 +1,7 @@
 import { useClient } from '@learn-graphql/api/src/hooks/urql/useClient';
 import { type CSSProperties } from 'react';
+import { Band } from './components/Band';
 import { Member } from './components/Member';
-import { Members } from './components/Members';
 
 export const App = () => {
   const { Provider, client } = useClient('http://localhost:4000/graphql');
@@ -13,7 +13,7 @@ export const App = () => {
           Fetch App <small style={styleTitleSub}>Powered by urql</small>
         </h1>
         <div style={styleContents}>
-          <Members />
+          <Band />
           <Member />
         </div>
       </main>
@@ -23,7 +23,7 @@ export const App = () => {
 
 const styleMain: CSSProperties = {
   margin: 'auto',
-  maxWidth: 720,
+  maxWidth: 1080,
 };
 
 const styleContents: CSSProperties = {

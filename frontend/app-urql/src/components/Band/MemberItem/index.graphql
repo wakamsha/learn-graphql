@@ -1,0 +1,4 @@
+fragment BandMember on Member {
+  name
+  instrument
+}
