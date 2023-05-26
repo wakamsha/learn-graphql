@@ -53,6 +53,26 @@ type Member {
   instrument: Instrument
 }
 
+"""
+Todo 情報
+"""
+type Todo {
+  """
+  TODO ID
+  """
+  id: ID!
+
+  """
+  TODO 概要
+  """
+  summary: String!
+
+  """
+  完了済みかどうか
+  """
+  finished: Boolean!
+}
+
 type Query {
   """
   指定のバンド情報を取得します。
@@ -72,4 +92,24 @@ type Query {
   @param id メンバー ID
   """
   member(id: ID!): Member!
+
+  """
+  TODO 一覧を取得します。
+  """
+  todoList: [Todo!]!
+}
+
+input TodoCreateInput {
+  summary: String!
+}
+
+input TodoUpdateInput {
+  id: ID!
+  summary: String!
+  finished: Boolean!
+}
+
+type Mutation {
+  createTodo(input: TodoCreateInput!): Todo!
+  updateTodo(todo: TodoUpdateInput!): Todo!
 }

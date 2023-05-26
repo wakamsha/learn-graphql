@@ -1,4 +1,10 @@
-import { type Band, type Member } from '@learn-graphql/api/gql/graphql';
+import {
+  type Band,
+  type Member,
+  type Todo,
+  type TodoCreateInput,
+  type TodoUpdateInput,
+} from '@learn-graphql/api/src/gql/graphql';
 import cors from 'cors';
 import express from 'express';
 import { createSchema, createYoga } from 'graphql-yoga';
@@ -24,10 +30,32 @@ const typeDefs = `
     instrument: Instrument
   }
 
+  type Todo {
+    id: ID!
+    summary: String!
+    finished: Boolean!
+  }
+
   type Query {
     band(id: ID!): Band!
     members(bandId: ID!): [Member!]!
     member(id: ID!): Member!
+    todoList: [Todo!]!
+  }
+
+  input TodoCreateInput {
+    summary: String!
+  }
+  
+  input TodoUpdateInput {
+    id: ID!
+    summary: String!
+    finished: Boolean!
+  }
+
+  type Mutation {
+    createTodo(input: TodoCreateInput!): Todo!
+    updateTodo(todo: TodoUpdateInput!): Todo!
   }
 `;
 
@@ -39,6 +67,27 @@ const resolvers = {
         .filter(([, value]) => value.bandId === bandId)
         .map(([, value]) => value),
     member: (_: unknown, { id }: { id: string }) => memberDb.get(id),
+    todoList: () => Array.from(todoDb.values()),
+  },
+  Mutation: {
+    createTodo: (_: unknown, { input: { summary } }: { input: TodoCreateInput }): Todo => {
+      console.info({ summary });
+      const id = `${Math.random()}`;
+      const todo: Todo = {
+        id,
+        summary,
+        finished: false,
+        __typename: 'Todo',
+      };
+      todoDb.set(id, todo);
+
+      return todo;
+    },
+    updateTodo: (_: unknown, { todo }: { todo: TodoUpdateInput }): Todo => {
+      todoDb.set(todo.id, { ...todo, id: `${todo.id}`, __typename: 'Todo' });
+
+      return todoDb.get(todo.id) as Todo;
+    },
   },
 };
 
@@ -74,6 +123,10 @@ const memberDb = new Map<string, Member>([
   ['iommi', { __typename: 'Member', bandId: 'sabbath', id: 'iommi', name: 'Tony Iommi', instrument: 'guitar' }],
   ['geezer', { __typename: 'Member', bandId: 'sabbath', id: 'geezer', name: 'Geezer Butler', instrument: 'bass' }],
   ['bill', { __typename: 'Member', bandId: 'sabbath', id: 'bill', name: 'Bill Ward', instrument: 'drum' }],
+]);
+
+const todoDb = new Map<string | number, Todo>([
+  ['a', { __typename: 'Todo', id: 'a', summary: 'my first todo', finished: false }],
 ]);
 
 const app = express();
