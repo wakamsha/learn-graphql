@@ -8,6 +8,7 @@
     "build": "vite build"
   },
   "dependencies": {
+    "@emotion/css": "11.11.0",
     "@learn-graphql/api": "workspace:*",
     "@learn-graphql/core": "workspace:*",
     "react": "18.2.0",

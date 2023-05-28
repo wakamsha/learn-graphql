@@ -109,7 +109,12 @@ input TodoUpdateInput {
   finished: Boolean!
 }
 
+input TodoDeleteInput {
+  id: ID!
+}
+
 type Mutation {
   createTodo(input: TodoCreateInput!): Todo!
   updateTodo(todo: TodoUpdateInput!): Todo!
+  deleteTodo(input: TodoDeleteInput!): Todo!
 }

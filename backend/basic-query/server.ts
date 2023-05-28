@@ -3,6 +3,7 @@ import {
   type Member,
   type Todo,
   type TodoCreateInput,
+  type TodoDeleteInput,
   type TodoUpdateInput,
 } from '@learn-graphql/api/src/gql/graphql';
 import cors from 'cors';
@@ -53,9 +54,14 @@ const typeDefs = `
     finished: Boolean!
   }
 
+  input TodoDeleteInput {
+    id: ID!
+  }
+
   type Mutation {
     createTodo(input: TodoCreateInput!): Todo!
     updateTodo(todo: TodoUpdateInput!): Todo!
+    deleteTodo(input: TodoDeleteInput!): Todo!
   }
 `;
 
@@ -87,6 +93,12 @@ const resolvers = {
       todoDb.set(todo.id, { ...todo, id: `${todo.id}`, __typename: 'Todo' });
 
       return todoDb.get(todo.id) as Todo;
+    },
+    deleteTodo: (_: unknown, { input }: { input: TodoDeleteInput }): Todo => {
+      const todo = todoDb.get(input.id);
+      todoDb.delete(input.id);
+
+      return todo as Todo;
     },
   },
 };

@@ -23,3 +23,12 @@ mutation updateTodo($id: ID!, $summary: String!, $finished: Boolean!) {
     finished
   }
 }
+
+mutation deleteTodo($id: ID!) {
+  deleteTodo(input: { id: $id }) {
+    __typename
+    id
+    summary
+    finished
+  }
+}
