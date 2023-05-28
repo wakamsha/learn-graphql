@@ -6,7 +6,7 @@ import {
 } from '@learn-graphql/api/src/gql/graphql';
 import { useMutation } from '@learn-graphql/api/src/hooks/urql/useMutation';
 import { useQuery } from '@learn-graphql/api/src/hooks/urql/useQuery';
-import { useEffect, useState, type ChangeEvent } from 'react';
+import { useEffect, useMemo, useState, type ChangeEvent } from 'react';
 
 export const Todo = () => {
   console.info('render: TODO');
@@ -67,14 +67,23 @@ const AddForm = () => {
  * 新しく Todo が追加されたり既存の Todo が更新されたら、自動的にサーバーから再取得します。
  * これは urql のキャッシュポリシーが `cache-first` となっていることで生じる挙動です。
  * @see {@link https://formidable.com/open-source/urql/docs/basics/document-caching/}
- *
- * @todo
- * Todo 一覧の初期値が空だと自動再取得が走らないため、これを解消すること。
- * @see {@link https://formidable.com/open-source/urql/docs/basics/document-caching/#adding-typenames}
  */
 const List = () => {
+  /**
+   * Todo 一覧の初期値が空でもキャッシュの自動更新を期待通り動作させるため、 `__typename` を強制的に追加します。
+   *
+   * @see {@link https://formidable.com/open-source/urql/docs/basics/document-caching/#document-cache-gotchas}
+   */
+  const context = useMemo(
+    () => ({
+      additionalTypenames: ['Todo'],
+    }),
+    [],
+  );
+
   const [{ data, fetching, error }] = useQuery({
     query: FetchTodoListDocument,
+    context,
   });
 
   console.info('render: List');
