@@ -2,6 +2,7 @@ import { useClient } from '@learn-graphql/api/src/hooks/urql/useClient';
 import { type CSSProperties } from 'react';
 import { Band } from './components/Band';
 import { Member } from './components/Member';
+import { Todo } from './components/Todo';
 
 export const App = () => {
   const { Provider, client } = useClient('http://localhost:4000/graphql');
@@ -15,6 +16,7 @@ export const App = () => {
         <div style={styleContents}>
           <Band />
           <Member />
+          <Todo />
         </div>
       </main>
     </Provider>
@@ -28,7 +30,7 @@ const styleMain: CSSProperties = {
 
 const styleContents: CSSProperties = {
   display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
+  gridTemplateColumns: '1fr 1fr 1fr',
   gap: 32,
 };
 
