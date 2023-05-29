@@ -33,7 +33,7 @@ export const AddForm = () => {
     <div>
       <form onSubmit={(e) => e.preventDefault()}>
         <input value={summary} onChange={handleChange} disabled={fetching} placeholder="what needs to be done?" />
-        <button onClick={handleSubmit} disabled={fetching}>
+        <button onClick={handleSubmit} disabled={fetching || summary.length === 0}>
           Add
         </button>
       </form>

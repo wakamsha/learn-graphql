@@ -47,7 +47,7 @@ const typeDefs = `
   input TodoCreateInput {
     summary: String!
   }
-  
+
   input TodoUpdateInput {
     id: ID!
     summary: String!

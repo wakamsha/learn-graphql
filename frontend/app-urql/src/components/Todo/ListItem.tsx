@@ -1,4 +1,4 @@
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 import { DeleteTodoDocument, UpdateTodoDocument, type FetchTodoListQuery } from '@learn-graphql/api/src/gql/graphql';
 import { useMutation } from '@learn-graphql/api/src/hooks/urql/useMutation';
 import { useState } from 'react';
@@ -12,7 +12,11 @@ export const ListItem = ({ id, summary, finished: finishedRaw }: Props) => {
 
   const [finished, setFinished] = useState(finishedRaw);
 
-  const handleToggle = () => {
+  const [hidden, setHidden] = useState(false);
+
+  const [removing, setRemoving] = useState(false);
+
+  const handleToggleFinished = () => {
     setFinished((state) => !state);
 
     updateExec({
@@ -23,15 +27,25 @@ export const ListItem = ({ id, summary, finished: finishedRaw }: Props) => {
   };
 
   const handleDelete = () => {
+    setHidden(true);
+  };
+
+  const handleTransitionEnd = () => {
+    setRemoving(true);
+
     deleteExec({
       id,
     });
   };
 
   return (
-    <div className={styleRoot}>
+    <div
+      className={cx(styleRoot, removing && styleRootRemoving)}
+      aria-hidden={hidden}
+      onTransitionEnd={handleTransitionEnd}
+    >
       <label className={styleLabel}>
-        <input type="checkbox" checked={finished} onChange={handleToggle} disabled={updateState.fetching} />
+        <input type="checkbox" checked={finished} onChange={handleToggleFinished} disabled={updateState.fetching} />
         {finished ? <s>{summary}</s> : <span>{summary}</span>}
       </label>
 
@@ -50,20 +64,32 @@ const styleRoot = css`
     'label   delete-button'
     'message message';
   grid-template-columns: 1fr auto;
+  padding: 8px;
+  opacity: 1;
+  transition: opacity 0.15s;
+
+  &[aria-hidden='true'] {
+    opacity: 0;
+  }
+`;
+
+const styleRootRemoving = css`
+  display: none;
 `;
 
 const styleLabel = css`
-  grid-area: label;
   display: flex;
-  align-items: center;
+  grid-area: label;
   gap: 4px;
+  align-items: center;
 `;
 
 const styleDeleteButton = css`
   grid-area: delete-button;
+  cursor: pointer;
 `;
 
 const styleErrorMessage = css`
-  color: red;
   grid-area: message;
+  color: red;
 `;

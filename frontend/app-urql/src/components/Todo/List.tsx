@@ -1,3 +1,4 @@
+import { css } from '@emotion/css';
 import { FetchTodoListDocument } from '@learn-graphql/api/src/gql/graphql';
 import { useQuery } from '@learn-graphql/api/src/hooks/urql/useQuery';
 import { useMemo } from 'react';
@@ -40,7 +41,7 @@ export const List = () => {
   }
 
   return (
-    <ul>
+    <ul className={styleRoot}>
       {data
         ? data.todoList.map((item) => (
             <li key={item.id}>
@@ -51,3 +52,12 @@ export const List = () => {
     </ul>
   );
 };
+
+const styleRoot = css`
+  padding: 0;
+  list-style: none;
+
+  > li + li {
+    border-top: 1px solid silver;
+  }
+`;
