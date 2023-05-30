@@ -1,0 +1,34 @@
+query fetchTodoList {
+  todoList {
+    id
+    summary
+    finished
+  }
+}
+
+mutation createTodo($summary: String!) {
+  createTodo(input: { summary: $summary }) {
+    __typename
+    id
+    summary
+    finished
+  }
+}
+
+mutation updateTodo($id: ID!, $summary: String!, $finished: Boolean!) {
+  updateTodo(todo: { id: $id, summary: $summary, finished: $finished }) {
+    __typename
+    id
+    summary
+    finished
+  }
+}
+
+mutation deleteTodo($id: ID!) {
+  deleteTodo(input: { id: $id }) {
+    __typename
+    id
+    summary
+    finished
+  }
+}
