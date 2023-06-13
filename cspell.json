@@ -12,6 +12,7 @@
     "Mounfield",
     "nodenv",
     "urql",
-    "typenames"
+    "typenames",
+    "docgen"
   ]
 }

@@ -1,8 +1,8 @@
-import { type Decorator, type Meta } from '@storybook/react';
+import { type Decorator, type Meta, type StoryObj } from '@storybook/react';
 import { graphql, setupWorker, type RequestHandler } from 'msw';
 import { useEffect } from 'react';
 
-export { type Meta };
+export { type Meta, type StoryObj };
 
 const worker = setupWorker();
 
