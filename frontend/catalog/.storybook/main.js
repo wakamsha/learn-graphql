@@ -15,4 +15,9 @@ module.exports = {
   docs: {
     autodocs: true,
   },
+  typescript: {
+    reactDocgenTypescriptOptions: {
+      include: ['../../../**/*.tsx'],
+    },
+  },
 };

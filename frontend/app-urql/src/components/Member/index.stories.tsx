@@ -1,9 +1,12 @@
 import { GetMemberByIdDocument } from '@learn-graphql/api/src/gql/graphql';
-import { mswDecorator, type Meta } from '@learn-graphql/core/src/utils/Catalog';
+import { mswDecorator, type Meta, type StoryObj } from '@learn-graphql/core/src/utils/Catalog';
 import { Member } from '.';
 
-const meta: Meta = {
+export default {
   component: Member,
+} as Meta<typeof Member>;
+
+export const Usage: StoryObj<typeof Member> = {
   decorators: [
     mswDecorator((gql) => [
       gql.query(GetMemberByIdDocument, (req, res, ctx) =>
@@ -30,6 +33,3 @@ const meta: Meta = {
     ]),
   ],
 };
-export default meta;
-
-export const Usage = {};

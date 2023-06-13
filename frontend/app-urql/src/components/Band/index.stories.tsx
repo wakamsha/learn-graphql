@@ -1,10 +1,13 @@
 import { makeFragmentData } from '@learn-graphql/api/src/gql/fragment-masking';
 import { BandMemberFragmentDoc, FetchBandDetailDocument } from '@learn-graphql/api/src/gql/graphql';
-import { mswDecorator, type Meta } from '@learn-graphql/core/src/utils/Catalog';
+import { mswDecorator, type Meta, type StoryObj } from '@learn-graphql/core/src/utils/Catalog';
 import { Band } from '.';
 
-const meta: Meta = {
+export default {
   component: Band,
+} as Meta<typeof Band>;
+
+export const Usage: StoryObj<typeof Band> = {
   decorators: [
     mswDecorator((gql) => [
       gql.query(FetchBandDetailDocument, (_, res, ctx) =>
@@ -69,6 +72,3 @@ const meta: Meta = {
     ]),
   ],
 };
-export default meta;
-
-export const Usage = {};
