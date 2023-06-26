@@ -14,6 +14,14 @@ const config: CodegenConfig = {
   generates: {
     'src/gql/': {
       preset: 'client',
+      presetConfig: {
+        fragmentMasking: {
+          // `useFragment` を `getFragmentData` に名称変更する。
+          // デフォルトの名称だと React がカスタムフックと誤解して用法が大幅に制限されるため。
+          // @see: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#the-usefragment-helper
+          unmaskFunctionName: 'getFragmentData',
+        },
+      },
       config: {
         enumsAsTypes: true,
         strictScalars: true,

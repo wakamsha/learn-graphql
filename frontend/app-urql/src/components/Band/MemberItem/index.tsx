@@ -1,4 +1,4 @@
-import { useFragment, type FragmentType } from '@learn-graphql/api/src/gql/fragment-masking';
+import { getFragmentData, type FragmentType } from '@learn-graphql/api/src/gql/fragment-masking';
 import { BandMemberFragmentDoc } from '@learn-graphql/api/src/gql/graphql';
 import { type CSSProperties } from 'react';
 
@@ -7,7 +7,7 @@ type Props = {
 };
 
 export const MemberItem = ({ member }: Props) => {
-  const { name, instrument } = useFragment(BandMemberFragmentDoc, member);
+  const { name, instrument } = getFragmentData(BandMemberFragmentDoc, member);
 
   return (
     <div style={styleBase}>
